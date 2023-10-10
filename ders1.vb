@@ -1,7 +1,7 @@
 Private Sub buton_Click()
 
 'Butona basıldığında seçilen resmi formdaki resim ile değiştirdik
-'LoadPicture(dosya yolu & "\" dosya adı) şeklinde seçilen dosyaların yolunu yazdık
+'LoadPicture(dosya yolu & "\" & dosya adı) şeklinde seçilen dosyaların yolunu yazdık
 resim.Picture = LoadPicture(dizin.Path & "\" & dosyalar.FileName)
 End Sub
 
