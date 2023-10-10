@@ -17,7 +17,7 @@ End Sub
 
 Private Sub kapla()
 'Bir prosedür oluşturduk ve "kapla" adını verdik. Bu prosedürü istediğimiz yerde kullanabileceğiz
-'Alt kısımda bu prosedür uygulandığında uygulanan resmin hangi özellikleri alacağını belirledik
+'Alt kısımda bu prosedür uygulandığında uygulanan prosedürde resmin hangi özellikleri alacağını belirledik
 resim.Top = 0
 resim.Left = 0
 resim.Width = Form1.Width
