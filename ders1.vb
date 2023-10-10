@@ -8,9 +8,6 @@ End Sub
 Private Sub Dizin_Click()
 'Dizin'e tıklatıldığında dosyaların yolunu dizinin yoluna eşitledik
 dosyalar.Path = dizin.Path
-
-'Eşitlenen dizinin içindeki dosyalarda .png uzantılı dosyaları göster dedik
-dosyalar.Pattern = ".png"
 End Sub
 
 Private Sub surucu_Change()
@@ -37,3 +34,4 @@ Private Sub Form_Active()
 'Yani prosedürdeki resim özellikleri ekran açıldığında mevcut resim buna göre ayarlanacak
 Call kapla
 End Sub
+
