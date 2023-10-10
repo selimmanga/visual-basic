@@ -31,7 +31,7 @@ End Sub
 
 Private Sub Form_Active()
 'Form aktif olduğunda oluşturduğumuz kapla prosedürünü kullandık
-'Yani prosedürdeki resim özellikleri ekran açıldığında mevcut resim buna göre ayarlanacak
+'Yani prosedürdeki resim özellikleri, ekran açıldığında mevcut resim buna göre ayarlanacak
 Call kapla
 End Sub
 
