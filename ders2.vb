@@ -1,31 +1,33 @@
 Dim ay As Integer
 Dim ayy As String
 
-Private Sub Command1_Click()
+Private Sub buton_hesapla_Click()
 
-MSFlexGrid1.ColAlignment(2) = flexAlignLeftCenter
 Dim taksit As Integer
 Dim yl As Integer
-
-MSFlexGrid1.TextMatrix(0, 0) = "Taksit"
-MSFlexGrid1.TextMatrix(0, 1) = "Miktar"
-MSFlexGrid1.TextMatrix(0, 2) = "Tarih"
-MSFlexGrid1.TextMatrix(0, 3) = "Durum"
-
-MSFlexGrid1.ColWidth(0) = 1000
-MSFlexGrid1.ColWidth(1) = 1000
-MSFlexGrid1.ColWidth(2) = 1500
-MSFlexGrid1.ColWidth(3) = 1500
-MSFlexGrid1.Width = 5400
-
+    
+tablo.ColAlignment(2) = flexAlignLeftCenter
+    
+With tablo
+.TextMatrix(0, 0) = "Taksit"
+.TextMatrix(0, 1) = "Miktar"
+.TextMatrix(0, 2) = "Tarih"
+.TextMatrix(0, 3) = "Durum"
+    
+.ColWidth(0) = 1000
+.ColWidth(1) = 1000
+.ColWidth(2) = 1500
+.ColWidth(3) = 1500
+.Width = 5400
+End With
 
 ay = Month(Date)
 yl = Year(Date)
 
-MSFlexGrid1.Rows = Text2.Text + 1
-taksit = CInt(Text1.Text) / CInt(Text2.Text)
+tablo.Rows = taksit_sayisi.Text + 1
+taksit = CInt(fiyat.Text) / CInt(taksit_sayisi.Text)
 
-For t = 1 To Text2.Text
+For t = 1 To taksit_sayisi.Text
 
 ay = ay + 1
 
@@ -33,22 +35,27 @@ If ay > 12 Then
 yl = yl + 1
 ay = 1
 End If
-
+    
 Call tarih
-MSFlexGrid1.TextMatrix(t, 0) = "Taksit" & t
-MSFlexGrid1.TextMatrix(t, 1) = taksit
-MSFlexGrid1.TextMatrix(t, 2) = yl & " " & ayy
-MSFlexGrid1.TextMatrix(t, 3) = "Ödenmedi"
 
-MSFlexGrid1.Row = t
-MSFlexGrid1.Col = 3
-MSFlexGrid1.CellBackColor = vbRed
-MSFlexGrid1.CellForeColor = vbWhite
+With tablo
+.TextMatrix(t, 0) = "Taksit" & t
+.TextMatrix(t, 1) = taksit
+.TextMatrix(t, 2) = yl & " " & ayy
+.TextMatrix(t, 3) = "Ödenmedi"
+    
+.Row = t
+.Col = 3
+.CellBackColor = vbRed
+.CellForeColor = vbWhite
+End With
+    
 Next
 
-fark = taksit * (Text2.Text - 1)
-fark2 = Text1.Text - fark
-MSFlexGrid1.TextMatrix(Text2.Text, 1) = fark2
+fark = taksit * (taksit_sayisi.Text - 1)
+fark2 = fiyat.Text - fark
+tablo.TextMatrix(taksit_sayisi.Text, 1) = fark2
+
 End Sub
 
 
@@ -67,34 +74,31 @@ If ay = 11 Then ayy = "Kasım"
 If ay = 12 Then ayy = "Aralık"
 End Sub
 
-Private Sub Command2_Click()
+Private Sub buton_odeme_Click()
 
-With MSFlexGrid1
-
+With tablo
 .TextMatrix(Label5.Caption, 2) = 0
-.TextMatrix(Label5.Caption, 3) = Ödendi
+.TextMatrix(Label5.Caption, 3) = "Ödendi"
 .Col = 3
 .Row = Label5.Caption
 .CellBackColor = vbBlue
-
 End With
+
 End Sub
 
 
-Private Sub MSFlexGrid1_Click()
+Private Sub tablo_Click()
+miktar.Text = tablo.TextMatrix(tablo.Row, 1)
+taksit_yazi.Text = tablo.TextMatrix(tablo.Row, 0)
+Label5.Caption = tablo.Row
 
-Text3.Text = MSFlexGrid1.TextMatrix(MSFlexGrid1.Row, 1)
-Text4.Text = MSFlexGrid1.TextMatrix(MSFlexGrid1.Row, 0)
-Label5.Caption = MSFlexGrid1.Row
-
-If MSFlexGrid1.Row < 1 Then
+If tablo.Row < 1 Then
 aa = MsgBox("Bu satırı kullanamazsınız!", vbCritical, "Dikkat")
-MSFlexGrid1.Row = MSFlexGrid1.Rows - 1
+tablo.Row = tablo.Rows - 1
 End If
 
-If MSFlexGrid1.TextMatrix(MSFlexGrid1.Row, 3) = "Ödendi" Then
+If tablo.TextMatrix(tablo.Row, 3) = "Ödendi" Then
 a = MsgBox("Bu taksit ödenmiş!", vbCritical, "Dikkat")
-MSFlexGrid1.Row = MSFlexGrid1.Rows - 1
+tablo.Row = tablo.Rows - 1
 End If
-
 End Sub
