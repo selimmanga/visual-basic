@@ -1,29 +1,26 @@
 Private Sub Form_Load()
+red.Max = 255
+red.Min = 0
 
-VScroll1.Max = 255
-VScroll1.Min = 0
+green.Max = 255
+green.Min = 0
 
-VScroll2.Max = 255
-VScroll2.Min = 0
-
-VScroll3.Max = 255
-VScroll3.Min = 0
-
+blue.Max = 255
+blue.Min = 0
 End Sub
 
 Private Sub renk()
-Picture1.BackColor = RGB(VScroll1.Value, VScroll2.Value, VScroll3.Value)
+renk_ekrani.BackColor = RGB(red.Value, green.Value, blue.Value)
 End Sub
 
-
-Private Sub VScroll1_Scroll()
+Private Sub red_Scroll()
 Call renk
 End Sub
 
-Private Sub VScroll2_Scroll()
+Private Sub green_Scroll()
 Call renk
 End Sub
 
-Private Sub VScroll3_Scroll()
+Private Sub blue_Scroll()
 Call renk
 End Sub
