@@ -106,6 +106,7 @@ fark2 = fiyat.Text - fark
 
 'Tablomuzda, taksit sayısı hangisiyse o satırın 1. sütununa bulduğumuz "fark2" değerini yazdırıyoruz
 tablo.TextMatrix(taksit_sayisi.Text, 1) = fark2
+'Rows ve Cols için: eğer sonunda s takısı varsa satır veya sütun sayısı demektir, yoksa satırın veya sütunun kendisi demektir.
 End Sub
 
 'Yukardaki döngüde kullandığımız prosedürü burada oluşturuyoruz.
