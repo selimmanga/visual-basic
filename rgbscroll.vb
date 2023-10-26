@@ -1,6 +1,6 @@
 'ByVal: Bu parametre ile oluşturulan değişken orijinalliğini korur ve üstünde işlem yapılamaz
 'Right$: Sağdan uzunluk alma işlemi 
-
+'Byte: yalnızca pozitif tam sayı değerlerini saklayabilir ve 8 bit uzunluğundadır
 Function RGBtoHex(ByVal r As Byte, ByVal g As Byte, ByVal b As Byte) As String
     RGBtoHex = Right$("0" & Hex(r), 2) & Right$("0" & Hex(g), 2) & Right$("0" & Hex(b), 2)
 End Function
