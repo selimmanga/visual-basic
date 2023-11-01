@@ -2,11 +2,8 @@ Private Sub firta_Click()
 Form2.Show
 End Sub
 
-Private Sub formkapat_Click()
-Form2.Unload
-End Sub
 
-Private Sub listele_buton_Click()
+Private Sub listele_Click()
 Dim liste As New ADODB.Recordset
 Dim say As Integer
 Dim metin As String
@@ -15,7 +12,7 @@ say = 0
 
 liste.Open "select * from tablo1", "dsn=masa", adOpenStatic
 
-With MSFlexGrid1
+With grid
 .Rows = liste.RecordCount + 1
 .Cols = 3
 
@@ -27,8 +24,17 @@ say = say + CInt(liste("yas"))
 'Yeni kayıta geçmesi için bunu yazmamız gerekir yoksa hepsine aynı veriyi yazdırır
 liste.MoveNext
 Next
+
+For p = 1 To liste.RecordCount
+If CInt(.TextMatrix(p, 2)) > CInt(say / liste.RecordCount) Then
+.Row = p
+.Col = 2
+.CellBackColor = vbRed
+End If
+Next
+
 End With
 
-metin = "Listedeki isimlerin yaş ortalaması " & CInt(say / liste.RecordCount) & "'dır."
-Label1.Caption = metin
+metin = "Listedeki isimlerin yaş ortalaması " & CInt(say / liste.RecordCount) & "'dir."
+yazi.Caption = metin
 End Sub
