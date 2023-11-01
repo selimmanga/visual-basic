@@ -2,7 +2,6 @@ Private Sub firta_Click()
 Form2.Show
 End Sub
 
-
 Private Sub listele_Click()
 Dim liste As New ADODB.Recordset
 Dim say As Integer
@@ -33,7 +32,6 @@ If CInt(.TextMatrix(p, 2)) > CInt(say / liste.RecordCount) Then
 .CellBackColor = vbRed
 End If
 Next
-
 End With
 
 metin = "Listedeki isimlerin yaş ortalaması " & CInt(say / liste.RecordCount) & "'dir."
