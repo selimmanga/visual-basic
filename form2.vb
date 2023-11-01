@@ -25,6 +25,7 @@ say = say + CInt(liste("yas"))
 liste.MoveNext
 Next
 
+'Ortalamanın üstündeki yaşları kırmızıya boya
 For p = 1 To liste.RecordCount
 If CInt(.TextMatrix(p, 2)) > CInt(say / liste.RecordCount) Then
 .Row = p
