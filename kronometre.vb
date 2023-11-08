@@ -3,11 +3,6 @@ Dim saniye As Integer
 
 Private Sub basla_buton_Click()
 
-If Text2.Text = "" And Text1.Text = "" And gerisay.Value = True Then
-a = MsgBox("Değer girilmeden geriye doğru saydırmazsınız.", vbCritical, "Dikkat")
-Timer1.Enabled = False
-End If
-    
 If Text1.Text = "" Then Text1.Text = 0
 If Text2.Text = "" Then Text2.Text = 0
 
